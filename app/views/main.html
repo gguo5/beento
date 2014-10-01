@@ -1,23 +1,64 @@
 <div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+    <h1>'Allo, 'Allo!</h1>
+    <p class="lead">
+        <img src="images/yeoman.png" alt="I'm Yeoman"><br>
+        Always a pleasure scaffolding your apps.
+    </p>
+    <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
+<div id="world-map" style="height: 375px" ></div>
 
+<script>
+
+	$(function(){
+        $('#world-map').vectorMap({
+            map: 'world_mill_en',
+            scaleColors: ['#C8EEFF', '#0071A4'],
+            normalizeFunction: 'polynomial',
+            regionStyle: {
+                initial: {
+                    fill: 'white',
+                    "fill-opacity": 1,
+                    stroke: 'none',
+                    "stroke-width": 0,
+                    "stroke-opacity": 1
+                },
+                hover: {
+                    fill: '#CCECE0',
+                    "fill-opacity": 0.8
+                }
+            },
+            markerStyle: {
+                initial: {
+                    fill: '#FA4239',
+                    stroke: '#FFFFFF'
+                },
+                hover: {
+                    stroke: '#1A8EBF',
+                    "stroke-width": 2
+                }
+            },
+            backgroundColor: '#96CBD7',
+            markers: [
+                {latLng: [41.90, 12.45], name: 'Vatican City'},
+                {latLng: [43.93, 12.46], name: 'San Marino'}
+            ]
+        });
+    });
+	
+	
+</script>
 <div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+    <h4>HTML5 Boilerplate</h4>
+    <p>
+        HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+    </p>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+    <h4>Angular</h4>
+    <p>
+        AngularJS is a toolset for building the framework most suited to your application development.
+    </p>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+    <h4>Karma</h4>
+    <p>Spectacular Test Runner for JavaScript.</p>
 </div>
