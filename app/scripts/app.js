@@ -8,13 +8,16 @@
  *
  * Main module of the application.
  */
-angular
-  .module('beenToApp', [
-    'ngAnimate',
-    'ngResource',
-    'ngRoute'
-  ])
-  .config(function ($routeProvider) {
+
+var beenToApp = angular.module('beenToApp', [
+  'ngAnimate',
+  'ngResource',
+  'ngRoute',
+  'ui.bootstrap'
+]);
+
+
+beenToApp.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
