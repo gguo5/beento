@@ -9,11 +9,19 @@
 <tabset>
     <tab ng-repeat="r in regions" heading="{{r.name}}">
       <ul class="country-list">
-      <li ng-repeat="c in countries" ng-if="c['region-code'] == r.code"><span ng-click="triggerAlert(c);" class="label label-info">{{c.name}}</span></li>
+      <li ng-repeat="c in countries" ng-if="c['region-code'] == r.code"><span ng-click="addCountry(c);" class="label label-info">{{c.name}}</span></li>
       </ul>
     </tab> 
   </tabset>
-<!-- <li ng-repeat="(name, region) in places">{{name}}: {{region}}</li> -->
+ <div class="panel panel-success">
+        <div class="panel-heading">
+            <h1 class="panel-title">Been to</h1>
+        </div>
+        <div class="panel-body">
+          <ul class="beento-country-list">
+            <li ng-repeat="bc in beenToCountries"><span ng-click="" class="label label-success">{{bc.name}}<span class="glyphicon glyphicon-remove country-remove"></span></span></li>
+          </ul>
+        </div>
 </div>
 <div map></div>
 

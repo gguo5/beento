@@ -83,13 +83,23 @@ body {
 
 /*custom css*/
 
-.country-list {list-style-type: none;
+.country-list, .beento-country-list {list-style-type: none;
                padding:5px;
              }
+
+.country-remove {margin-left: 3px;
+                }
 
 .country-list li {
   display: inline-block;
   width: 160px;
+  margin-right: 4px;
+  overflow: hidden;
+  vertical-align: bottom; /*to fix overflow hidden adds height issue*/
+ }
+
+ .beento-country-list li {
+  display: inline-block;
   margin-right: 4px;
   overflow: hidden;
   vertical-align: bottom; /*to fix overflow hidden adds height issue*/
@@ -105,5 +115,5 @@ body {
   width: 160px; 
 }
 
-.countries-block {height: 500px;
+.countries-block {/*height: 500px;*/
                   margin-bottom: 10px;}

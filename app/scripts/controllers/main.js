@@ -19,17 +19,33 @@ angular.module('beenToApp')
     				  {"name":"Europe","code":"150"},
     				  {"name":"Oceania","code":"009"},
     				  {"name":"Others"}];
+    $scope.beenToCountries=[];
     $scope.getCountryByName = function(c){
       var found = $filter('getCountryByName')($scope.countries, c);
-      $scope.triggerAlert(found);
+      $scope.addCountry(found);
     }; 
 
-    $scope.triggerAlert = function(c){
+    $scope.addCountry = function(c){
+      $scope.addCountryToBeen(c);
+      //add to map
       var r={};
       typeof c['region-code'] === "undefined" ? r[c['alpha-2']]="others" : r[c['alpha-2']]=c['region-code'];  
       $scope.datamap=r;
       console.log($scope.datamap);
     };
+    $scope.addCountryToBeen = function(c){
+      var temp_c = angular.copy(c);
+      var found = false;
+      for(var i = 0; i < $scope.beenToCountries.length; i++) {
+    	if ($scope.beenToCountries[i].name === c.name) {
+        found = true;
+        break;
+		    }
+		}
+	   if (!found){	
+      $scope.beenToCountries.push(temp_c);
+      }
+    }
     
   });
   });

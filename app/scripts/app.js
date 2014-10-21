@@ -54,6 +54,9 @@ beenToApp.directive('map', function() {
                       hover: {
                           fill: '#CCECE0',
                           "fill-opacity": 0.8
+                      },
+                      selectedHover: {
+                        "fill-opacity": 0.5
                       }
                     },
                     markerStyle: {
@@ -75,7 +78,7 @@ beenToApp.directive('map', function() {
                   ],
                 series: {
                   regions: [{
-                    //values: scope.datamap,  
+                     //values: scope.datamap,  
                      //scale: ['#0071A4'],
                        scale: {
                         "150": "#2761ad",

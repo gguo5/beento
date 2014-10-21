@@ -1,2 +1,4 @@
 1. countries.json, clean out unecessary columns
 2. angular filter module, true-> checkmark, if it's useful to filter been to countries?
+3. uppercase filter to get UPPERCASED REGION?
+4. animation, add country, animated to the beento list
