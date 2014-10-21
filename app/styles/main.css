@@ -77,3 +77,33 @@ body {
     border-bottom: 0;
   }
 }
+
+/*AngularJS UI remedy for cursor not changing on nav*/
+.nav a, .pagination a, .carousel a, .panel-title a { cursor: pointer; }
+
+/*custom css*/
+
+.country-list {list-style-type: none;
+               padding:5px;
+             }
+
+.country-list li {
+  display: inline-block;
+  width: 160px;
+  margin-right: 4px;
+  overflow: hidden;
+  vertical-align: bottom; /*to fix overflow hidden adds height issue*/
+ }
+
+ .country-list li:before{
+    
+}
+
+.country-list li span {
+  text-overflow: ellipsis; 
+  overflow:hidden;
+  width: 160px; 
+}
+
+.countries-block {height: 500px;
+                  margin-bottom: 10px;}
