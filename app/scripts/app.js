@@ -97,8 +97,27 @@ beenToApp.directive('map', function() {
           });     
 
         
-         scope.$watch("beenToCountries" , function(n,o){ 
-           console.log('beentoc: '+ scope.beenToCountries);   
+         scope.$watchCollection("beenToCountries" , function(n,o){ 
+          if(typeof o !== "undefined"){
+            if(typeof n !== "undefined"){
+              if(n.length < o.length ){
+                //only read the old one, just one left
+              var mapobj = $(element).vectorMap('get', 'mapObject');
+              //var newvals = {"IT":"150"};
+              //console.log('map obj in watch: '+chart.vectorMap('get', 'mapObject'));
+              //chart.vectorMap('get', 'mapObject').series.regions[0].setValues(newvals);
+              //mapobj.removeAllMarkers();
+              console.log(mapobj.series.regions[0].values);
+              //mapobj.series.regions[0].values=newvals;
+              console.log('in directive: country name to beremoved!'+scope.currentRemovedCountry.name+' '+scope.currentRemovedCountry['alpha-2']);
+              
+            } 
+          } 
+
+          
+          }
+
+           //console.log('new: '+ n+' old: '+ o);   
          });
 
 

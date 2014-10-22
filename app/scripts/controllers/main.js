@@ -20,6 +20,7 @@ angular.module('beenToApp')
     				  {"name":"Oceania","code":"009"},
     				  {"name":"Others"}];
     $scope.beenToCountries=[];
+    $scope.currentRemovedCountry={};
     $scope.getCountryByName = function(c){
       var found = $filter('getCountryByName')($scope.countries, c);
       $scope.addCountry(found);
@@ -49,9 +50,11 @@ angular.module('beenToApp')
     };
 
     $scope.removeCountry = function(c){
-      //remove from map
-
       //remove from beentocountry
+      $scope.currentRemovedCountry=c;
+      var temp_removed = $scope.beenToCountries.filter(function (kc){return kc.name!== c.name});
+      $scope.beenToCountries = temp_removed;
+      //remove from map
       console.log('country removed!'+c.name);
     };
     
