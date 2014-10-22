@@ -19,7 +19,7 @@
         </div>
         <div class="panel-body">
           <ul class="beento-country-list">
-            <li ng-repeat="bc in beenToCountries"><span ng-click="" class="label label-success">{{bc.name}}<span class="glyphicon glyphicon-remove country-remove"></span></span></li>
+            <li ng-repeat="bc in beenToCountries"><span class="label label-success">{{bc.name}}<span ng-click="removeCountry(bc);" class="glyphicon glyphicon-remove country-remove"></span></span></li>
           </ul>
         </div>
 </div>

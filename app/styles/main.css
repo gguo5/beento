@@ -89,6 +89,9 @@ body {
 
 .country-remove {margin-left: 3px;
                 }
+.country-remove:hover{
+  cursor: pointer;
+}
 
 .country-list li {
   display: inline-block;
@@ -97,6 +100,10 @@ body {
   overflow: hidden;
   vertical-align: bottom; /*to fix overflow hidden adds height issue*/
  }
+
+.country-list li span:hover{
+ cursor: pointer;
+}
 
  .beento-country-list li {
   display: inline-block;

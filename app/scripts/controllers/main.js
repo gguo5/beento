@@ -33,6 +33,7 @@ angular.module('beenToApp')
       $scope.datamap=r;
       console.log($scope.datamap);
     };
+
     $scope.addCountryToBeen = function(c){
       var temp_c = angular.copy(c);
       var found = false;
@@ -45,7 +46,14 @@ angular.module('beenToApp')
 	   if (!found){	
       $scope.beenToCountries.push(temp_c);
       }
-    }
+    };
+
+    $scope.removeCountry = function(c){
+      //remove from map
+
+      //remove from beentocountry
+      console.log('country removed!'+c.name);
+    };
     
   });
   });
