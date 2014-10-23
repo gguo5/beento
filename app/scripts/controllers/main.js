@@ -19,6 +19,7 @@ angular.module('beenToApp')
     				  {"name":"Europe","code":"150"},
     				  {"name":"Oceania","code":"009"},
     				  {"name":"Others"}];
+    $scope.orderProp = 'name';
     $scope.beenToCountries=[];
     $scope.currentRemovedCountry={};
     $scope.getCountryByName = function(c){
@@ -46,16 +47,17 @@ angular.module('beenToApp')
 		}
 	   if (!found){	
       $scope.beenToCountries.push(temp_c);
+      //remove from select country list
+      $scope.countries = $scope.countries.filter(function (lc){return lc.name!== c.name});
       }
     };
 
     $scope.removeCountry = function(c){
-      //remove from beentocountry
       $scope.currentRemovedCountry=c;
       var temp_removed = $scope.beenToCountries.filter(function (kc){return kc.name!== c.name});
       $scope.beenToCountries = temp_removed;
-      //remove from map
-      console.log('country removed!'+c.name);
+      console.log('country removed: '+c.name);
+      $scope.countries.push(c)
     };
     
   });

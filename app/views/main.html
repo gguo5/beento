@@ -9,7 +9,7 @@
 <tabset>
     <tab ng-repeat="r in regions" heading="{{r.name}}">
       <ul class="country-list">
-      <li ng-repeat="c in countries" ng-if="c['region-code'] == r.code"><span ng-click="addCountry(c);" class="label label-info">{{c.name}}</span></li>
+      <li ng-repeat="c in countries | orderBy:orderProp" ng-if="c['region-code'] == r.code"><span ng-click="addCountry(c);" class="label label-info">{{c.name}}</span></li>
       </ul>
     </tab> 
   </tabset>

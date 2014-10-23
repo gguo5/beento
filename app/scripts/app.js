@@ -83,7 +83,8 @@ beenToApp.directive('map', function() {
                         "142": "#8019B3",
                         "002": "#E0B84E",
                         "019": "#56EA4C",
-                        "others": "#66EADB"
+                        "others": "#66EADB",
+                        "def":"#FFFFFF"
                     },
                     attribute:'fill'
                   }]
@@ -101,16 +102,11 @@ beenToApp.directive('map', function() {
           if(typeof o !== "undefined"){
             if(typeof n !== "undefined"){
               if(n.length < o.length ){
-                //only read the old one, just one left
               var mapobj = $(element).vectorMap('get', 'mapObject');
-              //var newvals = {"IT":"150"};
-              //console.log('map obj in watch: '+chart.vectorMap('get', 'mapObject'));
-              //chart.vectorMap('get', 'mapObject').series.regions[0].setValues(newvals);
-              //mapobj.removeAllMarkers();
-              console.log(mapobj.series.regions[0].values);
-              //mapobj.series.regions[0].values=newvals;
-              console.log('in directive: country name to beremoved!'+scope.currentRemovedCountry.name+' '+scope.currentRemovedCountry['alpha-2']);
-              
+              var crm = {};
+              crm[scope.currentRemovedCountry['alpha-2']]="def";
+              mapobj.series.regions[0].setValues(crm);
+              //console.log('in directive: country name to beremoved!'+scope.currentRemovedCountry.name+' '+scope.currentRemovedCountry['alpha-2']);          
             } 
           } 
 
