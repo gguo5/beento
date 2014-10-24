@@ -23,14 +23,28 @@ angular.module('beenToApp')
     $scope.orderProp = 'name';
     var temp_btc = localStorageService.get('beenToCountries');
     $scope.beenToCountries = temp_btc || [];
+    $scope.initCountries ={};
+
+    $scope.generateInitCountries =  function(){
+      var r={};
+      angular.forEach($scope.beenToCountries,function(bc){
+      	typeof bc['region-code'] === "undefined" ? r[bc['alpha-2']]="others" : r[bc['alpha-2']]=bc['region-code'];  	
+      });
+	  $scope.initCountries=r;
+    }; 
+
+    if (typeof $scope.beenToCountries !== 'undefined' && $scope.beenToCountries.length >0) {
+    	$scope.generateInitCountries();//generateInitCountries fn needs to be present prior to this fn call
+    };
+
+    
 
     $scope.addToStorage =  function(){
-      console.log('browser supported? '+localStorageService.isSupported);
       localStorageService.add('beenToCountries', JSON.stringify($scope.beenToCountries));
     }; 
     
     $scope.currentRemovedCountry={};
-    
+
     $scope.getCountryByName = function(c){
       var found = $filter('getCountryByName')($scope.countries, c);
       $scope.addCountry(found);

@@ -48,16 +48,6 @@ beenToApp.filter('checkBeento', function() {
         }
       }    
     }
-    // var i=0, len=countries.length;
-    // for (; i<len; i++) {
-    //   for(var j=0; j<beenToCountries.length; j++ ){
-    //     if (countries[i].name === beenToCountries[j].name) {
-    //       countries.splice(i,1);
-    //       break;
-    //     }
-    //   }    
-    // }
-
     return countries;
   }
   }
@@ -109,7 +99,8 @@ beenToApp.directive('map', function() {
                   ],
                 series: {
                   regions: [{
-                    //values: scope.datamap,  
+                    values: scope.initCountries,
+                    //values: {"CN":"150","IT":"142"},  
                      //scale: ['#0071A4'],
                        scale: {
                         "150": "#2761ad",
@@ -133,7 +124,7 @@ beenToApp.directive('map', function() {
 
         
          scope.$watchCollection("beenToCountries" , function(n,o){ 
-          console.log('hit here: '+ n+' old: '+ o);  //comment out
+          //console.log('hit here: '+ n+' old: '+ o);  //comment out
           if(typeof o !== "undefined"){
             if(typeof n !== "undefined"){
               if(n.length < o.length ){
@@ -148,8 +139,6 @@ beenToApp.directive('map', function() {
           
           }
           scope.addToStorage();
-          //localStorageService.add('beento', scope.beenToCountries.join('\n'));
-           //console.log('new: '+ n+' old: '+ o);   
          });
 
 
