@@ -38,7 +38,7 @@ beenToApp.filter('getCountryByName', function() {
 beenToApp.filter('checkBeento', function() {
   return function(countries, beenToCountries) {
     if(typeof countries !== 'undefined' && typeof beenToCountries !== 'undefined'){
-    console.log(' typeof countries'+ typeof countries+' len: '+countries.length+' typeof beenToCountries:'+ typeof beenToCountries +' len: '+beenToCountries.length);
+    //console.log(' typeof countries'+ typeof countries+' len: '+countries.length+' typeof beenToCountries:'+ typeof beenToCountries +' len: '+beenToCountries.length);
     var i=0, len=beenToCountries.length;
     for (; i<len; i++) {
       for(var j=0; j<countries.length; j++ ){
