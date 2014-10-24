@@ -19,7 +19,7 @@ var beenToApp = angular.module('beenToApp', [
 
 
 beenToApp.config(['localStorageServiceProvider', function (localStorageServiceProvider) {
-  localStorageServiceProvider.setPrefix('ls');
+  localStorageServiceProvider.setPrefix('beenToApp');
   }]);
 
 
@@ -32,6 +32,21 @@ beenToApp.filter('getCountryByName', function() {
       }
     }
     return null;
+  }
+});
+
+beenToApp.filter('checkBeento', function() {
+  return function(countries, beenToCountries) {
+    var i=0, len=countries.length;
+    for (; i<len; i++) {
+      for(var j=0; j<beenToCountries.length; j++ ){
+        if (countries[i].name === beenToCountries[j].name) {
+          countries.splice(i,1);
+          break;
+        }
+      }    
+    }
+    return countries;
   }
 });
 
@@ -105,7 +120,7 @@ beenToApp.directive('map', function() {
 
         
          scope.$watchCollection("beenToCountries" , function(n,o){ 
-          console.log('hit here: '+ n+' old: '+ o);  
+          console.log('hit here: '+ n+' old: '+ o);  //comment out
           if(typeof o !== "undefined"){
             if(typeof n !== "undefined"){
               if(n.length < o.length ){

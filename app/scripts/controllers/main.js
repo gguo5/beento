@@ -21,16 +21,16 @@ angular.module('beenToApp')
     				  {"name":"Oceania","code":"009"},
     				  {"name":"Others"}];
     $scope.orderProp = 'name';
-    //$scope.beenToCountries=[]; 
-    var temp_btc = localStorageService.get('beento');
-    $scope.beenToCountries = temp_btc && temp_btc.split('\n') || [];
+    var temp_btc = localStorageService.get('beenToCountries');
+    $scope.beenToCountries = temp_btc || [];
 
     $scope.addToStorage =  function(){
-      console.log('inside to storage fn.');
-      localStorageService.add('beento', $scope.beenToCountries.join('\n'));
+      console.log('browser supported? '+localStorageService.isSupported);
+      localStorageService.add('beenToCountries', JSON.stringify($scope.beenToCountries));
     }; 
     
     $scope.currentRemovedCountry={};
+    
     $scope.getCountryByName = function(c){
       var found = $filter('getCountryByName')($scope.countries, c);
       $scope.addCountry(found);

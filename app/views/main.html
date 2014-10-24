@@ -9,13 +9,13 @@
 <tabset>
     <tab ng-repeat="r in regions" heading="{{r.name}}">
       <ul class="country-list">
-      <li ng-repeat="c in countries | orderBy:orderProp" ng-if="c['region-code'] == r.code"><span ng-click="addCountry(c);" class="label label-info">{{c.name}}</span></li>
+      <li ng-repeat="c in countries | checkBeento:beenToCountries | orderBy:orderProp" ng-if="c['region-code'] == r.code"><span ng-click="addCountry(c);" class="label label-info">{{c.name}}</span></li>
       </ul>
     </tab> 
   </tabset>
  <div class="panel panel-success">
         <div class="panel-heading">
-            <h1 class="panel-title">Been to</h1>
+            <h1 class="panel-title">Been to</h1> 
         </div>
         <div class="panel-body">
           <ul class="beento-country-list">
