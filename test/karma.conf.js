@@ -18,12 +18,20 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'bower_components/jquery/dist/jquery.js',
+      'bower_components/angular/angular.js',
+      'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-route/angular-route.js',
-      'app/scripts/**/*.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/angular-local-storage/dist/angular-local-storage.js',
+      'app/scripts/jvectormap/jquery.jvectormap.min.js',
+      'app/scripts/jvectormap/jquery-jvectormap-world-mill-with-antarctica-en.js',
+      'app/scripts/*.js',
+      'app/scripts/controllers/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],

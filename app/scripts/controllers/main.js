@@ -8,9 +8,10 @@
  * Controller of the beenToApp
  */
 angular.module('beenToApp')
-  .controller('MainCtrl', function ($scope,$http,$filter) {
+  .controller('MainCtrl', function ($scope,$http,$filter,localStorageService) {
     $http.get('data/allcountries.json').success(function(data) {
     $scope.countries = data;
+    });
     $scope.typedCountry = undefined;
     $scope.datamap = {};
     $scope.regions = [{"name":"Africa","code":"002"},
@@ -20,7 +21,15 @@ angular.module('beenToApp')
     				  {"name":"Oceania","code":"009"},
     				  {"name":"Others"}];
     $scope.orderProp = 'name';
-    $scope.beenToCountries=[];
+    //$scope.beenToCountries=[]; 
+    var temp_btc = localStorageService.get('beento');
+    $scope.beenToCountries = temp_btc && temp_btc.split('\n') || [];
+
+    $scope.addToStorage =  function(){
+      console.log('inside to storage fn.');
+      localStorageService.add('beento', $scope.beenToCountries.join('\n'));
+    }; 
+    
     $scope.currentRemovedCountry={};
     $scope.getCountryByName = function(c){
       var found = $filter('getCountryByName')($scope.countries, c);
@@ -60,5 +69,5 @@ angular.module('beenToApp')
       $scope.countries.push(c)
     };
     
-  });
+  
   });

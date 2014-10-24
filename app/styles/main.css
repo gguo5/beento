@@ -93,6 +93,10 @@ body {
   cursor: pointer;
 }
 
+.country-remove-name{
+  cursor:default;
+}
+
 .country-list li {
   display: inline-block;
   width: 160px;
