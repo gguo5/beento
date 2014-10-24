@@ -37,16 +37,29 @@ beenToApp.filter('getCountryByName', function() {
 
 beenToApp.filter('checkBeento', function() {
   return function(countries, beenToCountries) {
-    var i=0, len=countries.length;
+    if(typeof countries !== 'undefined' && typeof beenToCountries !== 'undefined'){
+    console.log(' typeof countries'+ typeof countries+' len: '+countries.length+' typeof beenToCountries:'+ typeof beenToCountries +' len: '+beenToCountries.length);
+    var i=0, len=beenToCountries.length;
     for (; i<len; i++) {
-      for(var j=0; j<beenToCountries.length; j++ ){
-        if (countries[i].name === beenToCountries[j].name) {
-          countries.splice(i,1);
+      for(var j=0; j<countries.length; j++ ){
+        if (countries[j].name === beenToCountries[i].name) {
+          countries.splice(j,1);
           break;
         }
       }    
     }
+    // var i=0, len=countries.length;
+    // for (; i<len; i++) {
+    //   for(var j=0; j<beenToCountries.length; j++ ){
+    //     if (countries[i].name === beenToCountries[j].name) {
+    //       countries.splice(i,1);
+    //       break;
+    //     }
+    //   }    
+    // }
+
     return countries;
+  }
   }
 });
 
